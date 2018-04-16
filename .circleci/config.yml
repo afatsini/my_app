@@ -36,11 +36,6 @@ jobs:
                             --format RspecJunitFormatter \
                             --out /tmp/test-results/rspec.xml
 
-      - type: shell
-        command: |
-          bundle exec cucumber --format json \
-                               --out /tmp/test-results/cucumber.cucumber
-
       - type: store_artifacts
         path: /tmp/test-results
 
