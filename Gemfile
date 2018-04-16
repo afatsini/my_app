@@ -4,18 +4,15 @@ gem 'rails', '4.2.10'
 
 gem 'mysql2', '~> 0.4.0'
 gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
 
 gem 'figaro'
-gem 'therubyracer', platforms: :ruby
 gem 'jbuilder'
 gem 'jquery-rails'
-gem 'turbolinks'
-
 gem 'sdoc', '~> 0.4.0', group: :doc
-
+gem 'therubyracer', platforms: :ruby
+gem 'turbolinks'
+gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
-
 
 group :development, :test do
   gem 'annotate'
