@@ -43,3 +43,17 @@ jobs:
         path: /tmp/test-results
 
       - run: CODECLIMATE_REPO_TOKEN=$CODECLIMATE_REPO_TOKEN bundle exec codeclimate-test-reporter
+
+      #heroku
+      - run: bash .circleci/setup-heroku.sh
+      - add_ssh_keys:
+          fingerprints:
+            - "6f:7d:5b:c2:31:84:73:7d:b3:9f:47:97:19:2b:8e:fb"
+      - deploy:
+          name: Deploy Master to Heroku
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              git push heroku master
+              heroku run python manage.py deploy
+              heroku restart
+            fi
